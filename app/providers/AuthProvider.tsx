@@ -17,7 +17,7 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext>({
   handleLogin: async () => {},
   handleLogout: async () => {},
-  isAuthenticated: false,
+  isAuthenticated: true, // TODO
   isEmployee: false,
   isInitial: false,
 });
@@ -29,7 +29,9 @@ function AuthProvider({
 }>) {
   const [isAuthenticated, setAuthenticated] = useState(() => {
     const hasToken = LocalStorage.get(appConfig.tokenName);
-    return hasToken ? true : false;
+    // TODO
+    // return hasToken ? true : false;
+    return true
   });
   const employeeNameLS = "TH_is_employee";
   const [isEmployee, setEmployee] = useState(() => {
