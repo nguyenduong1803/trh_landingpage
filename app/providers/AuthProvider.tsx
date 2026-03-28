@@ -18,7 +18,7 @@ const AuthContext = createContext<IAuthContext>({
   handleLogin: async () => {},
   handleLogout: async () => {},
   isAuthenticated: true, // TODO
-  isEmployee: false,
+  isEmployee: true, //TODO
   isInitial: false,
 });
 // provider
@@ -36,7 +36,8 @@ function AuthProvider({
   const employeeNameLS = "TH_is_employee";
   const [isEmployee, setEmployee] = useState(() => {
     const hasEmployee = LocalStorage.get(employeeNameLS);
-    return hasEmployee === "true" ? true : false;
+    // return hasEmployee === "true" ? true : false;
+    return true
   });
   const [isInitial, setIsInitial] = useState(false);
   const user = useState({});
